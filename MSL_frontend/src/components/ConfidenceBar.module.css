@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.background {
+  flex: 1;
+  height: 4px;
+  background-color: #242a33;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.filled {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 300ms ease-out;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #b8bcc4;
+  min-width: 35px;
+  text-align: right;
+}
+
+.size-small {
+  .background {
+    height: 3px;
+  }
+
+  .label {
+    font-size: 0.75rem;
+  }
+}
+
+.size-medium {
+  .background {
+    height: 4px;
+  }
+}
+
+.size-large {
+  .background {
+    height: 6px;
+  }
+
+  .label {
+    font-size: 0.875rem;
+  }
+}

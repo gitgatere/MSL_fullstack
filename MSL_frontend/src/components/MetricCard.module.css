@@ -1,0 +1,77 @@
+.card {
+  padding: 20px;
+  background-color: #1a1f26;
+  border-radius: 8px;
+  border: 1px solid rgba(251, 188, 5, 0.1);
+  transition: all 200ms ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: rgba(251, 188, 5, 0.3);
+  box-shadow: 0 4px 12px rgba(8, 96, 95, 0.15);
+  transform: translateY(-2px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8a8f99;
+}
+
+.content {
+  margin-bottom: 12px;
+}
+
+.value {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #e8eaed;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.subValue {
+  font-size: 0.875rem;
+  color: #598381;
+  margin-top: 8px;
+}
+
+.accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-color),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.card:hover .accent {
+  opacity: 1;
+}
