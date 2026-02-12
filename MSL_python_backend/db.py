@@ -1,4 +1,5 @@
-from sqlalchemy import create_engine, Column, Integer, String, DateTime, JSONB, Float, ForeignKey, Numeric, event
+from sqlalchemy import create_engine, Column, Integer, String, DateTime, ForeignKey, Numeric
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
