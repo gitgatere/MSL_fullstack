@@ -1,0 +1,5 @@
+[build]
+command = "pip install -r requirements.txt"
+
+[build.environment]
+SKIP_PIPENV = "true"
