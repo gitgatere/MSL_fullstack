@@ -42,3 +42,4 @@ logs/
 *.db
 *.sqlite
 *.sqlite3
+.venv/
