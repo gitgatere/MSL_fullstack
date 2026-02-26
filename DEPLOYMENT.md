@@ -22,11 +22,13 @@ MSL/
 ### Local Development
 
 1. Clone the repository and navigate to the root directory:
+
 ```bash
 cd /path/to/MSL
 ```
 
 2. Start all services:
+
 ```bash
 docker-compose up -d
 ```
@@ -39,22 +41,28 @@ docker-compose up -d
 ### Environment Configuration
 
 #### Backend
+
 Copy `.env.example` to `.env` in `MSL_python_backend/`:
+
 ```bash
 cp MSL_python_backend/.env.example MSL_python_backend/.env
 ```
 
 Configure these variables:
+
 - `DATABASE_URL`: PostgreSQL connection string
 - `ALLOWED_ORIGINS`: Comma-separated list of allowed origins for CORS
 
 #### Frontend
+
 Copy `.env.example` to `.env.local` in `MSL_frontend/`:
+
 ```bash
 cp MSL_frontend/.env.example MSL_frontend/.env.local
 ```
 
 Configure:
+
 - `VITE_API_BASE_URL`: Backend API URL
 
 ## Local Development (without Docker)
@@ -152,12 +160,14 @@ Your app is now live! Frontend on Vercel + Backend on Railway.
 The project includes Dockerfiles for both frontend and backend. You can build and deploy them to any Docker-compatible service.
 
 **Build Backend Image:**
+
 ```bash
 cd MSL_python_backend
 docker build -t msl-backend:latest .
 ```
 
 **Build Frontend Image:**
+
 ```bash
 cd MSL_frontend
 docker build -t msl-frontend:latest .
@@ -178,15 +188,19 @@ For detailed instructions on deploying the backend, see [MSL_python_backend/DEPL
 ## API Endpoints
 
 ### Health Check
+
 - `GET /health` - Server health status
 
 ### Dashboard
+
 - `GET /stats` - Get dashboard statistics (total devices, present devices, etc.)
 
 ### Live Scans
+
 - `GET /live?limit=50` - Get recent scan results
 
 ### Submit Scan
+
 - `POST /scan` - Submit a new scan for processing
 
 See `http://localhost:8000/docs` for full API documentation (SwaggerUI)
@@ -196,6 +210,7 @@ See `http://localhost:8000/docs` for full API documentation (SwaggerUI)
 ### Code Structure
 
 **Frontend:**
+
 - `src/components/` - Reusable React components
 - `src/pages/` - Page-level components
 - `src/api/` - API client
@@ -203,6 +218,7 @@ See `http://localhost:8000/docs` for full API documentation (SwaggerUI)
 - `src/styles/` - CSS modules and theme
 
 **Backend:**
+
 - `api.py` - API routes and handlers
 - `app.py` - FastAPI application setup
 - `db.py` - Database models and configuration
@@ -214,6 +230,7 @@ See `http://localhost:8000/docs` for full API documentation (SwaggerUI)
 ## Troubleshooting
 
 ### Docker Issues
+
 ```bash
 # View logs
 docker-compose logs -f
@@ -226,17 +243,20 @@ docker-compose down -v
 ```
 
 ### Database Connection Issues
+
 - Ensure PostgreSQL is running and accessible
 - Check `DATABASE_URL` format
 - Verify port 5432 is available
 
 ### CORS Errors
+
 - Add frontend URL to backend's `ALLOWED_ORIGINS`
 - Restart backend after changing environment variables
 
 ## Support
 
 For issues or questions, please check the individual README files in:
+
 - `MSL_frontend/README.md`
 - `MSL_python_backend/` (create if needed)
 
