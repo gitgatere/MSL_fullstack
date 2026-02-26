@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { THEME } from "../styles/theme";
 import styles from "./MetricCard.module.css";
 
@@ -24,8 +24,12 @@ export function MetricCard({
     highlight: THEME.colors.highlight,
   };
 
+  const cardStyle = {
+    "--accent-color": colorMap[color],
+  } as CSSProperties;
+
   return (
-    <div className={styles.card} style={{ "--accent-color": colorMap[color] } as any}>
+    <div className={styles.card} style={cardStyle}>
       <div className={styles.header}>
         {icon && <div className={styles.icon}>{icon}</div>}
         <label className={styles.label}>{label}</label>

@@ -46,6 +46,14 @@ export function Dashboard() {
   }
 
   const confidencePercent = Math.round(stats.averageConfidence * 100);
+  const onlinePercent =
+    stats.totalDevices > 0
+      ? Math.round((stats.presentDevices / stats.totalDevices) * 100)
+      : 0;
+  const offlinePercent =
+    stats.totalDevices > 0
+      ? Math.round((stats.absentDevices / stats.totalDevices) * 100)
+      : 0;
 
   return (
     <div className={styles.dashboard}>
@@ -65,13 +73,13 @@ export function Dashboard() {
           label="Present"
           value={stats.presentDevices}
           color="secondary"
-          subValue={`${Math.round((stats.presentDevices / stats.totalDevices) * 100)}% online`}
+          subValue={`${onlinePercent}% online`}
         />
         <MetricCard
           label="Absent"
           value={stats.absentDevices}
           color="accent"
-          subValue={`${Math.round((stats.absentDevices / stats.totalDevices) * 100)}% offline`}
+          subValue={`${offlinePercent}% offline`}
         />
         <MetricCard
           label="Avg Confidence"

@@ -1,42 +1,39 @@
-# Low-Power Localization Dashboard
-## Frontend Application (React + TypeScript + Vite)
+# MSL Frontend
 
----
+React + TypeScript + Vite dashboard for live localization monitoring.
 
-## 1. Overview
+## Requirements
 
-This frontend is the visualization layer for the Low-Power Localization System.
+- Node.js `>=20.19` or `>=22.12` (Vite 7 requirement)
+- npm
 
-The backend performs signal fingerprinting and proximity classification.  
-This frontend:
+## Setup
 
-- Visualizes live scan results
-- Displays device presence classification
-- Shows system confidence metrics
-- Enables demonstration and monitoring
-- Provides a polished investor/demo interface
+```bash
+cd MSL_frontend
+npm install
+npm run dev
+```
 
-It does NOT perform localization logic.
+## Build and Quality Checks
 
-The system demonstrates how cellular signals (without GPS) can determine indoor proximity with reasonable confidence.
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+```
 
----
+## Environment Variables
 
-## 2. Tech Stack
+- `VITE_API_BASE_URL` (default: `http://localhost:8000`)
+- `VITE_API_KEY` (optional; sent as `X-API-Key`)
 
-| Technology | Purpose |
-|------------|----------|
-| React 18 | UI framework |
-| TypeScript | Strict typing and reliability |
-| Vite | Fast dev server + build tool |
-| Native Fetch API | Backend communication |
-| Custom CSS (No frameworks) | Controlled, minimal UI design |
+## Behavior
 
-No UI libraries (Material UI, Chakra, Tailwind, etc.) are used to ensure:
-- Design consistency
-- Lightweight bundle size
-- Full styling control
+- Dashboard and live feed poll backend every 5 seconds
+- API failures are handled gracefully with fallback UI
+- Supports backend auth when `VITE_API_KEY` is set
 
----
+## Notes
 
-
+- Local dev server binding may be restricted by sandboxed environments; this does not affect production deployment.
